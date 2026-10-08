@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Undangan Pernikahan Adat Jawa - Rama & Shinta</title>
+    <title>Pawiwahan Ageng - Rama & Shinta</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Great+Vibes&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@600;700;900&family=Great+Vibes&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -16,8 +16,8 @@
             --gold-primary: #D4AF37;
             --gold-light: #F3E5AB;
             --gold-dark: #996515;
-            --bg-dark: #0f141d;
-            --bg-card: rgba(22, 29, 41, 0.85);
+            --bg-dark: #0b0f17;
+            --bg-card: rgba(18, 24, 38, 0.88);
             --text-light: #F8F9FA;
             --text-gold: #E5C158;
             --text-muted: #B3B8C1;
@@ -36,8 +36,8 @@
             color: var(--text-light);
             overflow-x: hidden;
             background-image: 
-                radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.05) 0%, transparent 60%),
-                repeating-linear-gradient(45deg, rgba(212, 175, 55, 0.02) 0px, rgba(212, 175, 55, 0.02) 2px, transparent 2px, transparent 10px);
+                radial-gradient(circle at 50% 30%, rgba(212, 175, 55, 0.08) 0%, transparent 60%),
+                repeating-linear-gradient(45deg, rgba(212, 175, 55, 0.015) 0px, rgba(212, 175, 55, 0.015) 2px, transparent 2px, transparent 12px);
         }
 
         /* Canvas Animation Background */
@@ -58,7 +58,7 @@
             left: 0;
             width: 100%;
             height: 100vh;
-            background: linear-gradient(rgba(15, 20, 29, 0.85), rgba(15, 20, 29, 0.95)),
+            background: linear-gradient(rgba(11, 15, 23, 0.88), rgba(11, 15, 23, 0.96)),
                         url('https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=1200&auto=format&fit=crop') center/cover no-repeat;
             z-index: 999;
             display: flex;
@@ -79,84 +79,130 @@
         .cover-content {
             max-width: 500px;
             width: 100%;
-            animation: fadeIn 1.5s ease-out;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        /* GUNUNGAN SVG STYLING */
-        .gunungan-icon {
-            width: 140px;
-            height: auto;
-            margin-bottom: 15px;
-            filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5));
+        /* INITIAL CREST LOGO */
+        .initial-crest {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            border: 2px solid var(--gold-primary);
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.2) 0%, rgba(11, 15, 23, 0.9) 80%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            margin-bottom: 20px;
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.4), inset 0 0 15px rgba(212, 175, 55, 0.3);
             animation: pulseGlow 3s infinite alternate;
         }
 
-        @keyframes pulseGlow {
-            0% { transform: scale(1); filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.4)); }
-            100% { transform: scale(1.05); filter: drop-shadow(0 0 18px rgba(212, 175, 55, 0.8)); }
+        .initial-crest::before {
+            content: '';
+            position: absolute;
+            top: -6px; left: -6px; right: -6px; bottom: -6px;
+            border: 1px dashed var(--gold-light);
+            border-radius: 50%;
+            animation: rotateCrest 25s linear infinite;
         }
 
-        .title-jawa {
+        .initial-text {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--gold-light);
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
+            letter-spacing: 2px;
+        }
+
+        @keyframes rotateCrest {
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes pulseGlow {
+            0% { transform: scale(1); box-shadow: 0 0 20px rgba(212, 175, 55, 0.3); }
+            100% { transform: scale(1.05); box-shadow: 0 0 35px rgba(212, 175, 55, 0.7); }
+        }
+
+        /* ANIMATED TEXT STYLING */
+        .animated-text-sub {
             font-family: 'Cinzel Decorative', serif;
             color: var(--text-gold);
-            font-size: 1.1rem;
-            letter-spacing: 3px;
+            font-size: 0.95rem;
+            letter-spacing: 4px;
             text-transform: uppercase;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards 0.3s;
         }
 
         .couple-names {
             font-family: 'Great Vibes', cursive;
-            font-size: 3.5rem;
+            font-size: 3.6rem;
             color: var(--gold-light);
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-            margin: 10px 0;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.9);
+            margin: 5px 0 15px;
+            opacity: 0;
+            animation: fadeInUp 1.2s ease forwards 0.6s;
         }
 
         .guest-box {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.04);
             border: 1px solid rgba(212, 175, 55, 0.3);
-            border-radius: 12px;
-            padding: 15px 25px;
-            margin: 20px 0;
-            backdrop-filter: blur(5px);
+            border-radius: 14px;
+            padding: 16px 28px;
+            margin: 15px 0 25px;
+            backdrop-filter: blur(8px);
+            opacity: 0;
+            animation: fadeInUp 1.2s ease forwards 0.9s;
+            width: 90%;
         }
 
         .guest-name {
-            font-size: 1.3rem;
+            font-size: 1.25rem;
             font-weight: 700;
             color: var(--text-gold);
-            margin-top: 5px;
+            margin-top: 4px;
         }
 
         .btn-open {
             background: linear-gradient(135deg, var(--gold-dark), var(--gold-primary), var(--gold-light));
-            color: #000;
+            color: #0b0f17;
             font-weight: 700;
-            padding: 12px 30px;
+            padding: 14px 32px;
             border: none;
             border-radius: 50px;
-            font-size: 1rem;
+            font-size: 0.95rem;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
             transition: all 0.3s ease;
             display: inline-flex;
             align-items: center;
             gap: 10px;
+            opacity: 0;
+            animation: fadeInUp 1.2s ease forwards 1.2s;
         }
 
         .btn-open:hover {
             transform: translateY(-3px) scale(1.03);
-            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.7);
         }
 
-        /* MAIN CONTENT LAYOUT */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* MAIN CONTAINER */
         .container {
             max-width: 600px;
             margin: 0 auto;
             min-height: 100vh;
-            background: rgba(15, 20, 29, 0.95);
-            box-shadow: 0 0 30px rgba(0,0,0,0.8);
+            background: rgba(11, 15, 23, 0.96);
+            box-shadow: 0 0 40px rgba(0,0,0,0.9);
             position: relative;
             padding-bottom: 80px;
         }
@@ -164,32 +210,62 @@
         /* HERO SECTION */
         .hero {
             height: 90vh;
-            background: linear-gradient(to bottom, rgba(15, 20, 29, 0.3), var(--bg-dark)),
+            background: linear-gradient(to bottom, rgba(11, 15, 23, 0.3), var(--bg-dark)),
                         url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1000&auto=format&fit=crop') center/cover;
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
             align-items: center;
             text-align: center;
-            padding: 40px 20px;
+            padding: 40px 20px 60px;
+            position: relative;
+        }
+
+        /* SCROLL DOWN INDICATOR */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: var(--text-gold);
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            animation: bounce 2s infinite;
+            cursor: pointer;
+            z-index: 5;
+        }
+
+        .scroll-indicator i {
+            font-size: 1.2rem;
+            margin-top: 5px;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
+            40% { transform: translate(-50%, -10px); }
+            60% { transform: translate(-50%, -5px); }
         }
 
         /* CARD STYLING */
         .section-card {
             background: var(--bg-card);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            border-radius: 16px;
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            border-radius: 18px;
             margin: 25px 20px;
             padding: 30px 20px;
             text-align: center;
             position: relative;
-            backdrop-filter: blur(8px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
         }
 
         .section-title {
             font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
+            font-size: 1.75rem;
             color: var(--text-gold);
             margin-bottom: 15px;
             position: relative;
@@ -199,35 +275,35 @@
         .section-title::after {
             content: '';
             display: block;
-            width: 50%;
+            width: 60%;
             height: 2px;
             background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
             margin: 8px auto 0;
         }
 
-        /* COUPLE SECTION */
+        /* PROFILE SECTION */
         .profile-img {
-            width: 150px;
-            height: 150px;
+            width: 140px;
+            height: 140px;
             border-radius: 50%;
             object-fit: cover;
             border: 3px solid var(--gold-primary);
-            padding: 5px;
+            padding: 4px;
             margin-bottom: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.6);
         }
 
         .person-name {
             font-family: 'Great Vibes', cursive;
-            font-size: 2.5rem;
+            font-size: 2.4rem;
             color: var(--gold-light);
         }
 
         .parents-info {
             font-size: 0.85rem;
             color: var(--text-muted);
-            margin-top: 5px;
-            line-height: 1.4;
+            margin-top: 6px;
+            line-height: 1.5;
         }
 
         /* COUNTDOWN TIMER */
@@ -239,10 +315,10 @@
         }
 
         .timer-box {
-            background: rgba(212, 175, 55, 0.1);
+            background: rgba(212, 175, 55, 0.08);
             border: 1px solid rgba(212, 175, 55, 0.3);
-            border-radius: 8px;
-            padding: 10px;
+            border-radius: 10px;
+            padding: 12px 8px;
             min-width: 65px;
         }
 
@@ -254,27 +330,89 @@
         }
 
         .timer-label {
-            font-size: 0.7rem;
+            font-size: 0.68rem;
             color: var(--text-muted);
             text-transform: uppercase;
         }
 
-        /* EVENT DETAILS */
-        .event-box {
-            border-left: 3px solid var(--gold-primary);
-            background: rgba(255, 255, 255, 0.02);
-            padding: 15px;
+        /* TIMELINE RUNDOWN ADAT JAWA */
+        .timeline {
+            position: relative;
+            margin: 20px 0;
+            padding-left: 20px;
             text-align: left;
-            margin: 15px 0;
-            border-radius: 0 8px 8px 0;
         }
 
-        .event-box h4 {
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 5px;
+            bottom: 5px;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--gold-primary), rgba(212, 175, 55, 0.2));
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 25px;
+            padding-left: 20px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -18px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--gold-primary);
+            box-shadow: 0 0 10px var(--gold-primary);
+        }
+
+        .timeline-title {
+            font-size: 1.1rem;
+            font-weight: 700;
             color: var(--text-gold);
-            font-size: 1.2rem;
-            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
+        .timeline-time {
+            font-size: 0.75rem;
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-light);
+            padding: 3px 8px;
+            border-radius: 12px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .timeline-desc {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            margin-top: 6px;
+            line-height: 1.4;
+        }
+
+        /* MAPS EMBED */
+        .map-container {
+            width: 100%;
+            height: 220px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            margin: 15px 0;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* BUTTONS */
         .btn-action {
             display: inline-flex;
             align-items: center;
@@ -282,20 +420,22 @@
             background: transparent;
             border: 1px solid var(--gold-primary);
             color: var(--text-gold);
-            padding: 8px 18px;
-            border-radius: 20px;
+            padding: 10px 20px;
+            border-radius: 25px;
             text-decoration: none;
             font-size: 0.85rem;
-            margin-top: 10px;
+            margin: 5px;
             transition: all 0.3s;
+            cursor: pointer;
         }
 
         .btn-action:hover {
             background: var(--gold-primary);
-            color: #000;
+            color: #0b0f17;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
         }
 
-        /* GALLERY */
+        /* GALLERY GRID */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -305,9 +445,9 @@
 
         .gallery-grid img {
             width: 100%;
-            height: 160px;
+            height: 150px;
             object-fit: cover;
-            border-radius: 8px;
+            border-radius: 10px;
             border: 1px solid rgba(212, 175, 55, 0.2);
             cursor: pointer;
             transition: transform 0.3s;
@@ -317,7 +457,7 @@
             transform: scale(1.03);
         }
 
-        /* RSVP & GUESTBOOK */
+        /* RSVP & FORM */
         .form-group {
             margin-bottom: 15px;
             text-align: left;
@@ -325,17 +465,17 @@
 
         .form-group label {
             display: block;
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             color: var(--text-muted);
             margin-bottom: 5px;
         }
 
         .form-input, .form-select, .form-textarea {
             width: 100%;
-            padding: 10px 12px;
+            padding: 11px 14px;
             background: rgba(0, 0, 0, 0.4);
             border: 1px solid rgba(212, 175, 55, 0.3);
-            border-radius: 8px;
+            border-radius: 10px;
             color: var(--text-light);
             font-family: inherit;
         }
@@ -354,10 +494,10 @@
 
         .guestbook-item {
             background: rgba(255, 255, 255, 0.03);
-            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
-            padding: 10px;
-            border-radius: 6px;
-            margin-bottom: 8px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 10px;
         }
 
         .guestbook-name {
@@ -379,15 +519,15 @@
         .guestbook-msg {
             font-size: 0.85rem;
             color: var(--text-muted);
-            margin-top: 4px;
+            margin-top: 5px;
         }
 
-        /* BANK / DIGITAL GIFT */
+        /* BANK CARD */
         .bank-card {
-            background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(212, 175, 55, 0.05));
+            background: linear-gradient(135deg, rgba(255,255,255,0.04), rgba(212, 175, 55, 0.06));
             border: 1px solid rgba(212, 175, 55, 0.3);
-            border-radius: 12px;
-            padding: 15px;
+            border-radius: 14px;
+            padding: 16px;
             margin-bottom: 15px;
         }
 
@@ -395,7 +535,7 @@
             font-weight: 700;
             font-size: 1.2rem;
             color: var(--gold-light);
-            margin-bottom: 5px;
+            margin-bottom: 4px;
         }
 
         /* AUDIO CONTROLLER FLOATING */
@@ -403,17 +543,17 @@
             position: fixed;
             bottom: 25px;
             right: 25px;
-            width: 45px;
-            height: 45px;
+            width: 48px;
+            height: 48px;
             background: var(--gold-primary);
-            color: #000;
+            color: #0b0f17;
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
             cursor: pointer;
             z-index: 99;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.6);
             animation: spin 6s linear infinite;
         }
 
@@ -429,19 +569,19 @@
         /* TOAST NOTIFICATION */
         #toast {
             visibility: hidden;
-            min-width: 200px;
+            min-width: 220px;
             background-color: var(--gold-primary);
-            color: #000;
+            color: #0b0f17;
             text-align: center;
             border-radius: 25px;
-            padding: 10px 20px;
+            padding: 12px 24px;
             position: fixed;
             z-index: 1000;
             bottom: 30px;
             left: 50%;
             transform: translateX(-50%);
             font-weight: 600;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.4);
         }
 
         #toast.show {
@@ -461,11 +601,9 @@
             display: none;
             position: fixed;
             z-index: 1000;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.9);
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.92);
             justify-content: center;
             align-items: center;
         }
@@ -473,39 +611,35 @@
         .modal img {
             max-width: 90%;
             max-height: 80vh;
-            border-radius: 8px;
+            border-radius: 10px;
             border: 2px solid var(--gold-primary);
         }
     </style>
 </head>
 <body>
 
-    <!-- Canvas Melati Gugur -->
+    <!-- Canvas Animation Particle/Melati -->
     <canvas id="jasmineCanvas"></canvas>
 
-    <!-- Background Audio (Gamelan Instrumental) -->
+    <!-- Background Audio (Instrumental Gamelan) -->
     <audio id="bgMusic" loop>
         <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=indonesian-gamelan-traditional-music-112260.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- Floating Music Button -->
+    <!-- Floating Audio Button -->
     <div class="music-btn paused" id="musicToggle" onclick="toggleAudio()">
         <i class="fas fa-music"></i>
     </div>
 
-    <!-- COVER SECTION OVERLAY -->
+    <!-- COVER OVERLAY WITH INITIAL CREST LOGO -->
     <div id="cover">
         <div class="cover-content">
-            <!-- Gunungan SVG Ornamen -->
-            <svg class="gunungan-icon" viewBox="0 0 100 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M50 5 L90 120 L10 120 Z" stroke="#D4AF37" stroke-width="2" fill="rgba(212, 175, 55, 0.1)"/>
-                <path d="M50 15 L80 110 L20 110 Z" stroke="#F3E5AB" stroke-width="1"/>
-                <circle cx="50" cy="65" r="15" stroke="#D4AF37" stroke-width="1.5"/>
-                <path d="M50 30 Q65 50 50 70 Q35 90 50 110" stroke="#D4AF37" stroke-width="1.5" fill="none"/>
-                <path d="M50 120 L50 135 M30 120 L30 130 M70 120 L70 130" stroke="#D4AF37" stroke-width="2"/>
-            </svg>
+            <!-- Initial Crest Logo -->
+            <div class="initial-crest">
+                <span class="initial-text">R&S</span>
+            </div>
 
-            <p class="title-jawa">Pawiwahan Ageng</p>
+            <p class="animated-text-sub">Pawiwahan Ageng</p>
             <h1 class="couple-names">Rama & Shinta</h1>
             <p style="color: var(--text-muted); font-size: 0.9rem;">Sabtu, 24 Oktober 2026</p>
 
@@ -523,15 +657,21 @@
     <!-- MAIN CONTENT -->
     <div class="container">
 
-        <!-- HERO -->
-        <section class="hero">
-            <p class="title-jawa">Mundhi Dhawuh</p>
-            <h1 class="couple-names" style="font-size: 4rem;">Rama & Shinta</h1>
-            <p style="font-size: 0.9rem; color: var(--gold-light);">24 . 10 . 2026</p>
+        <!-- HERO SECTION -->
+        <section class="hero" id="heroSection">
+            <p class="animated-text-sub" style="opacity: 1;">Mundhi Dhawuh</p>
+            <h1 class="couple-names" style="opacity: 1; font-size: 4rem;">Rama & Shinta</h1>
+            <p style="font-size: 0.95rem; color: var(--gold-light); font-weight: 600;">24 . 10 . 2026</p>
+
+            <!-- Scroll Indicator -->
+            <div class="scroll-indicator" onclick="scrollToNextSection()">
+                <span>Gulir Ke Bawah</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
         </section>
 
         <!-- QUOTE AYAT -->
-        <section class="section-card">
+        <section class="section-card" id="quoteSection">
             <p style="font-style: italic; font-size: 0.9rem; line-height: 1.6; color: var(--text-muted);">
                 "Maha Suci Allah yang telah menciptakan pasangan-pasangan semuanya, baik dari apa yang ditumbuhkan oleh bumi dan dari diri mereka maupun dari apa yang tidak mereka ketahui."
             </p>
@@ -546,7 +686,7 @@
             </p>
 
             <!-- Mempelai Pria -->
-            <div style="margin-bottom: 30px;">
+            <div style="margin-bottom: 25px;">
                 <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop" alt="Mempelai Pria" class="profile-img">
                 <h3 class="person-name">Raden Rama Wijaya, S.T.</h3>
                 <p class="parents-info">
@@ -583,34 +723,79 @@
             </div>
         </section>
 
-        <!-- DETAIL ACARA -->
+        <!-- RUNDOWN / ACARA PERNIKAHAN DETAIL ADAT JAWA -->
         <section class="section-card">
-            <h2 class="section-title">Rundown Acara</h2>
+            <h2 class="section-title">Rundown Pahargyan</h2>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px;">
+                Rangkaian Prosesi Adat & Acara Pernikahan:
+            </p>
 
-            <div class="event-box">
-                <h4><i class="fas fa-ring" style="margin-right: 8px;"></i>Akad Nikah</h4>
-                <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 5px;">
-                    <i class="far fa-clock"></i> 08.00 WIB - 10.00 WIB<br>
-                    <i class="far fa-calendar-alt"></i> Sabtu, 24 Oktober 2026<br>
-                    <i class="fas fa-map-marker-alt"></i> Pendopo Agung Hotel Majapahit, Surabaya
-                </p>
+            <div class="timeline">
+                <!-- Event 1: Siraman & Midodareni -->
+                <div class="timeline-item">
+                    <div class="timeline-title">
+                        <span>Siraman & Midodareni</span>
+                        <span class="timeline-time">Jumat, 23 Okt</span>
+                    </div>
+                    <div class="timeline-desc">
+                        <b>Waktu:</b> 15.00 WIB - Selesai<br>
+                        Prosesi pembersihan diri adat Jawa serta malam Midodareni menjelang ijab kabul.
+                    </div>
+                </div>
+
+                <!-- Event 2: Akad Nikah -->
+                <div class="timeline-item">
+                    <div class="timeline-title">
+                        <span>Akad Nikah Suci</span>
+                        <span class="timeline-time">08.00 - 10.00 WIB</span>
+                    </div>
+                    <div class="timeline-desc">
+                        <b>Waktu:</b> Sabtu, 24 Oktober 2026<br>
+                        <b>Lokasi:</b> Pendopo Agung Hotel Majapahit<br>
+                        Prosesi pengucapan Ijab Kabul secara sakral dan Khidmat.
+                    </div>
+                </div>
+
+                <!-- Event 3: Upacara Panggih Jawa -->
+                <div class="timeline-item">
+                    <div class="timeline-title">
+                        <span>Upacara Panggih Adat</span>
+                        <span class="timeline-time">10.30 - 11.30 WIB</span>
+                    </div>
+                    <div class="timeline-desc">
+                        Prosesi temu penganten adat Jawa (Balangan Ganthal, Ngidak Tigan, Kacar-Kucur, & Sungkeman).
+                    </div>
+                </div>
+
+                <!-- Event 4: Resepsi Pahargyan -->
+                <div class="timeline-item">
+                    <div class="timeline-title">
+                        <span>Resepsi / Pahargyan Ageng</span>
+                        <span class="timeline-time">11.30 - 14.00 WIB</span>
+                    </div>
+                    <div class="timeline-desc">
+                        <b>Lokasi:</b> Grand Ballroom Hotel Majapahit, Surabaya.<br>
+                        Ramah tamah, doa bersama, dan santap malam ucapan syukur.
+                    </div>
+                </div>
             </div>
 
-            <div class="event-box">
-                <h4><i class="fas fa-glass-cheers" style="margin-right: 8px;"></i>Resepsi & Walimatul Ursy</h4>
-                <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 5px;">
-                    <i class="far fa-clock"></i> 11.00 WIB - 14.00 WIB<br>
-                    <i class="far fa-calendar-alt"></i> Sabtu, 24 Oktober 2026<br>
-                    <i class="fas fa-map-marker-alt"></i> Grand Ballroom Hotel Majapahit, Surabaya
-                </p>
+            <!-- EMBEDDED GOOGLE MAPS -->
+            <h3 style="font-size: 1.1rem; color: var(--text-gold); margin-top: 25px;">Lokasi Acara</h3>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 10px;">Hotel Majapahit Surabaya - Jl. Tunjungan No.65</p>
+
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.9252327705355!2d112.73683887574768!3d-7.249339271212879!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7f93e3e0988bf%3A0xb36384bb25243fb3!2sHotel%20Majapahit%20Surabaya!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
 
-            <a href="https://maps.google.com" target="_blank" class="btn-action">
-                <i class="fas fa-map-marked-alt"></i> Buka Google Maps
-            </a>
-            <a href="https://calendar.google.com" target="_blank" class="btn-action">
-                <i class="far fa-calendar-plus"></i> Simpan ke Kalender
-            </a>
+            <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 8px;">
+                <a href="https://maps.google.com/?q=Hotel+Majapahit+Surabaya" target="_blank" class="btn-action">
+                    <i class="fas fa-directions"></i> Petunjuk Rute Maps
+                </a>
+                <a href="https://calendar.google.com" target="_blank" class="btn-action">
+                    <i class="far fa-calendar-plus"></i> Simpan ke Kalender
+                </a>
+            </div>
         </section>
 
         <!-- GALERI FOTO -->
@@ -633,7 +818,7 @@
 
             <div class="bank-card">
                 <div class="bank-logo">BANK BCA</div>
-                <p style="font-size: 0.9rem; color: var(--text-light);">1234 5678 90</p>
+                <p style="font-size: 0.95rem; color: var(--text-light); font-weight: 600;">1234 5678 90</p>
                 <p style="font-size: 0.8rem; color: var(--text-muted);">a.n Raden Rama Wijaya</p>
                 <button class="btn-action" style="margin-top: 10px;" onclick="copyText('1234567890')">
                     <i class="far fa-copy"></i> Salin Rekening
@@ -642,7 +827,7 @@
 
             <div class="bank-card">
                 <div class="bank-logo">BANK MANDIRI</div>
-                <p style="font-size: 0.9rem; color: var(--text-light);">0987 6543 210</p>
+                <p style="font-size: 0.95rem; color: var(--text-light); font-weight: 600;">0987 6543 210</p>
                 <p style="font-size: 0.8rem; color: var(--text-muted);">a.n Diajeng Shinta Dewi</p>
                 <button class="btn-action" style="margin-top: 10px;" onclick="copyText('09876543210')">
                     <i class="far fa-copy"></i> Salin Rekening
@@ -669,21 +854,21 @@
                     <label>Ucapan & Doa Restu</label>
                     <textarea id="guestMessage" class="form-textarea" rows="3" placeholder="Tuliskan ucapan & doa Anda..." required></textarea>
                 </div>
-                <button type="submit" class="btn-open" style="width: 100%; justify-content: center; font-size: 0.9rem;">
+                <button type="submit" class="btn-open" style="width: 100%; justify-content: center; font-size: 0.9rem; opacity: 1;">
                     <i class="fas fa-paper-plane"></i> Kirim Ucapan
                 </button>
             </form>
 
             <!-- Dynamic Guestbook List -->
             <div class="guestbook-list" id="guestbookList">
-                <!-- Entries loaded dynamically -->
+                <!-- Data dari LocalStorage -->
             </div>
         </section>
 
         <!-- FOOTER -->
-        <footer style="text-align: center; padding: 20px; color: var(--text-muted); font-size: 0.75rem;">
-            <p>Matur Nuwun</p>
-            <p style="color: var(--text-gold); font-family: 'Great Vibes', cursive; font-size: 1.5rem; margin-top: 5px;">Rama & Shinta</p>
+        <footer style="text-align: center; padding: 25px 20px; color: var(--text-muted); font-size: 0.75rem;">
+            <p>Matur Nuwun Ingkang Ageng</p>
+            <p style="color: var(--text-gold); font-family: 'Great Vibes', cursive; font-size: 1.8rem; margin-top: 5px;">Rama & Shinta</p>
         </footer>
     </div>
 
@@ -712,6 +897,11 @@
             document.getElementById('musicToggle').classList.remove('paused');
         }
 
+        // Smooth Scroll To Quote / Next Section
+        function scrollToNextSection() {
+            document.getElementById('quoteSection').scrollIntoView({ behavior: 'smooth' });
+        }
+
         // Toggle Audio
         function toggleAudio() {
             const audio = document.getElementById('bgMusic');
@@ -725,7 +915,7 @@
             }
         }
 
-        // Copy Text & Toast
+        // Copy Text & Toast Notification
         function copyText(text) {
             navigator.clipboard.writeText(text);
             const toast = document.getElementById('toast');
